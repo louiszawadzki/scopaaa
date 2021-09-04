@@ -15,6 +15,9 @@
       width: 100px;
       margin-bottom: 10px;
     }
+    input[type="number"] {
+      width: 200px;
+    }
     .score {
       font-size: 40px;
     }
@@ -33,9 +36,12 @@
       <input type="number" pattern="\d*" id="2"/>
       <input type="number" pattern="\d*" id="3"/>
       <input type="number" pattern="\d*" id="4"/>
-      <input type="submit" value="Calculer" />
+      <div>
+        <input type="submit" value="Calculer" />
+        <button id="reset">Reset</button>
+      </div>
     </form>
-    <span class="score">Score: <span id="score"></span></span>
+    <span class="score">Score: <span id="score">0</span></span>
   </div>
   <script>
     const getScoreFromCard = (card) => {
@@ -52,6 +58,16 @@
       const result = document.getElementById('score');
       result.innerText = score;
       e.preventDefault()
+    })
+
+    const reset = document.getElementById('reset');
+    reset.addEventListener('click', (e) => {
+      for(let i=1;i<5;i++) {
+        const input = document.getElementById(i.toString());
+        input.value = "";
+      }
+      const result = document.getElementById('score');
+      result.innerText = 0;
     })
   </script>
 </body>
