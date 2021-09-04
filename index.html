@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scopaaa</title>
+  <style>
+    form, .main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    input, button {
+      width: 100px;
+      margin-bottom: 10px;
+    }
+    .score {
+      font-size: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <h1>Compteur de score de scopa</h1>
+    <form id="form" >
+      <input type="number" id="1" />
+      <input type="number" id="2"/>
+      <input type="number" id="3"/>
+      <input type="number" id="4"/>
+      <button type="submit">Calculer</button>
+    </form>
+    <span class="score">Score: <span id="score"></span></span>
+  </div>
+  <script>
+    const getScoreFromCard = (card) => {
+      return [0, 16, 12, 13, 14, 15, 18, 21, 10, 10, 10][card] || 0
+    }
+    const form = document.getElementById('form');
+    form.addEventListener('submit', (e) => {
+      let score = 0;
+      for(let i=1;i<5;i++) {
+        const input = document.getElementById(i.toString());
+        const value = +input.value || 0;
+        score += getScoreFromCard(value);
+      }
+      const result = document.getElementById('score');
+      result.innerText = score;
+      e.preventDefault()
+    })
+  </script>
+</body>
+</html>
