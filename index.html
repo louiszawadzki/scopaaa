@@ -23,12 +23,17 @@
 <body>
   <div class="main">
     <h1>Compteur de score de scopa</h1>
+    <span style="margin-bottom: 20px;">
+      Entrer le numéro de la meilleure carte dans chaque couleur. <br />
+      Mettre 8, 9, 10 pour valet, cavalier, roi. <br />
+      Mettre 0 ou rien si pas de carte. <br />
+    </span>
     <form id="form" >
-      <input type="number" id="1" />
-      <input type="number" id="2"/>
-      <input type="number" id="3"/>
-      <input type="number" id="4"/>
-      <button type="submit">Calculer</button>
+      <input type="number" pattern="\d*" id="1" />
+      <input type="number" pattern="\d*" id="2"/>
+      <input type="number" pattern="\d*" id="3"/>
+      <input type="number" pattern="\d*" id="4"/>
+      <input type="submit" value="Calculer" />
     </form>
     <span class="score">Score: <span id="score"></span></span>
   </div>
